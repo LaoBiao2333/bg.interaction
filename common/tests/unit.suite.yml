@@ -1,7 +1,7 @@
-suite_namespace: common\tests\unit
-actor: UnitTester
+class_name: UnitTester
 bootstrap: false
 modules:
     enabled:
         - Yii2:
+            configFile: 'config/test-local.php'
             part: fixtures

@@ -4,9 +4,8 @@ namespace frontend\assets;
 
 use yii\web\AssetBundle;
 use yii\web\View;
-
 /**
- * Main frontend application asset bundle.
+ * Main Frontend application asset bundle.
  */
 class AppAsset extends AssetBundle
 {
@@ -18,26 +17,27 @@ class AppAsset extends AssetBundle
     {
         parent::init();
         $this->css = [
-            //'css/common.css?v='.time()
+            'css/common.css?v='.time()
         ];
         $this->js  = [
-            //'js/common.js?v='.time(),
+            'js/common.js?v='.time(),
         ];
     }
+
     /**
      * @inheritdoc
      */
     public $jsOptions = [
         'position' => View::POS_HEAD,
-    ];
+    ]; 
     public $depends = [
         'yii\web\YiiAsset',
-        //'yii\bootstrap\BootstrapAsset',
+        // 'yii\bootstrap\BootstrapAsset',
     ];
-    //定义按需加载js方法，注意加载顺序在最后
     public static function addScript($view, $jsfile) {
         $view->registerJsFile($jsfile, ['depends' => 'frontend\assets\AppAsset', AppAsset::className()]);
     }
+
     //定义按需加载css方法，注意加载顺序在最后
     public static function addCss($view, $cssfile) {
         $view->registerCssFile($cssfile, [AppAsset::className(), 'depends' => 'frontend\assets\AppAsset']);

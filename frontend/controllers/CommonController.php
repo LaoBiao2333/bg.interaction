@@ -15,7 +15,7 @@ class CommonController extends Controller
     public $enableCsrfValidation = false;
     public $layout = false;
     //404页面
-    public function actionError404(){
+    public function actionError(){
         return '404,页面走丢了~~~~';
     }
 

@@ -57,6 +57,7 @@ class NewsController extends CommonController
             $list[$key]['new_time'] = date('Y/m/d H:i:s',$value['new_time']);
             $list[$key]['new_content'] = tools::cutstr_html($value['new_content'],250);
         }
+        //var_dump($list);
         //总条数
         $totalCount = $pages->totalCount;
         //把所以数据转换成json格式

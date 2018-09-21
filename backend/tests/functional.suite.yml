@@ -1,5 +1,5 @@
-suite_namespace: backend\tests\functional
-actor: FunctionalTester
+class_name: FunctionalTester
 modules:
     enabled:
-        - Yii2
+      - Yii2:
+            configFile: 'config/test.php'

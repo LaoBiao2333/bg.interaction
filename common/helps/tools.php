@@ -7,28 +7,40 @@ class tools
     {
 
         $url = 'http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=' . $queryIP;
+
         $ch = curl_init($url);
+
         curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $location = curl_exec($ch);
+
         $location = json_decode($location);
+
         curl_close($ch);
+
+
         static $loc = "";
+
         if ($location === FALSE) return "";
+
         if (!empty($location->province)) {
+
             $loc = $location->province . $location->city;
 
         } elseif (!empty($location->country)) {
             $loc = $location->country;
         } else {
+
             $loc = "ip地址错误！";
+
         }
 
         return $loc;
 
     }
 
-    //获取年份并从大到小排序
+//获取年份并从大到小排序
     public static function getYear($data)
     {
         $year = array();
@@ -40,7 +52,7 @@ class tools
         return $ye;
     }
 
-    //获取月份并从小到大排序
+//获取月份并从小到大排序
     public static function getMonth($data)
     {
         $month = array();
@@ -52,7 +64,6 @@ class tools
         return $mo;
     }
 
-    //截取字符串
     public static function getStr($str, $len = 12, $dot = true)
     {
         $i = 0;
@@ -88,7 +99,7 @@ class tools
         return $re;
     }
 
-    //文章内容截取(去除HTML标签、空格等等，再截取)
+
     public static function cutstr_html($string, $length = 100, $ellipsis = '…')
     {
         $string = htmlspecialchars_decode($string);

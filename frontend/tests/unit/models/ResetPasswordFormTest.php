@@ -2,7 +2,7 @@
 
 namespace frontend\tests\unit\models;
 
-use common\fixtures\UserFixture;
+use common\fixtures\User as UserFixture;
 use frontend\models\ResetPasswordForm;
 
 class ResetPasswordFormTest extends \Codeception\Test\Unit
@@ -11,7 +11,6 @@ class ResetPasswordFormTest extends \Codeception\Test\Unit
      * @var \frontend\tests\UnitTester
      */
     protected $tester;
-
 
     public function _before()
     {

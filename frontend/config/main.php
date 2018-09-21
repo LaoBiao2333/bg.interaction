@@ -1,9 +1,9 @@
 <?php
 $params = array_merge(
-    require __DIR__ . '/../../common/config/params.php',
-    require __DIR__ . '/../../common/config/params-local.php',
-    require __DIR__ . '/params.php',
-    require __DIR__ . '/params-local.php'
+    require(__DIR__ . '/../../common/config/params.php'),
+    require(__DIR__ . '/../../common/config/params-local.php'),
+    require(__DIR__ . '/params.php'),
+    require(__DIR__ . '/params-local.php')
 );
 
 return [
@@ -35,7 +35,7 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'common/error404',
+            'errorAction' => 'common/error',
         ],
         //assets清除缓存
         'assetManager' => [
@@ -43,14 +43,9 @@ return [
         ],
         //路由设置
         'urlManager' => [
-            //开启美化url配置
             'enablePrettyUrl' => true,
-            //隐藏index.php
             'showScriptName' => false,
-            //启用严格解析，默认不启用
-            'enableStrictParsing' => false,
-            //定义后缀
-            //'suffix' => '.html',
+            'enableStrictParsing'=>false,
             'rules' => [
                 '/'=>'index/index',
                 'news/<id:\d+>.html'=>'news/detail',

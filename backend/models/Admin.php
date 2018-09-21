@@ -9,6 +9,8 @@
 
 namespace backend\models;
 
+use common\helps\crypto;
+
 class Admin extends \yii\db\ActiveRecord
 {
     public static function tableName(){
@@ -61,7 +63,9 @@ class Admin extends \yii\db\ActiveRecord
                 return $data;
             }
             //验证密码
-            if(md5($password)==$admin_data['password']){
+            $key = 'hdsw';
+            $crypt = new crypto();
+            if($password == $crypt->decrypt($admin_data['password'],$key)){
                 //设置登录session
                 $session = \Yii::$app->session;
                 //开启session

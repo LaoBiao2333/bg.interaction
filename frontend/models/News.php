@@ -57,11 +57,15 @@ class News extends \yii\db\ActiveRecord
     //热门推荐
     public function getHot($limit){
         $hot = $this->find()
-            ->select('id,new_title')
+            ->select('id,new_title,new_img,new_time')
             ->where(['new_state'=>1])
             ->limit($limit)
             ->orderBy('new_number DESC')
             ->asArray()->all();
+        //转换时间格式
+        foreach($hot as $key=>$value){
+            $hot[$key]['new_time'] = date('Y/m/d H:i',$value['new_time']);
+        }
         return $hot;
     }
     //新闻详情

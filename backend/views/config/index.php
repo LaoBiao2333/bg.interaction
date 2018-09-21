@@ -169,34 +169,6 @@ use yii\helpers\Html;
             });
             return false;
         });
-
-        //判断是否显示营销邮箱模板
-        if($('input[name="GiConfig[email_status]"]').val()==0){
-            $('#s_email_template').hide();
-        }
-        //判断是否显示营销短信模板
-        if($('input[name="GiConfig[sms_status]"]').val()==0){
-            $('#s_sms_template').hide();
-        }
-
-        form.on('switch(email_status)', function(data){
-            if(this.checked){
-                $('input[name="GiConfig[email_status]"]').val("1");
-                $('#s_email_template').show();
-            }else{
-                $('input[name="GiConfig[email_status]"]').val("0");
-                $('#s_email_template').hide();
-            }
-        });
-        form.on('switch(sms_status)', function(data){
-            if(this.checked){
-                $('input[name="GiConfig[sms_status]"]').val("1");
-                $('#s_sms_template').show();
-            }else{
-                $('input[name="GiConfig[sms_status]"]').val("0");
-                $('#s_sms_template').hide();
-            }
-        });
     })
 
 </script>
